@@ -1,0 +1,105 @@
+/* フッターのスタイル - 白背景に黒文字、小さいフォント */
+.site-footer {
+    padding: 15px 0;
+    margin-top: 50px;
+    background-color: #fff; /* 白背景 */
+    color: #333; /* 黒文字 */
+    font-size: 12px; /* 小さいフォント */
+    border-top: 1px solid #e0e0e0; /* 上部に細い境界線 */
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.footer-info {
+    text-align: center;
+}
+
+.footer-contact, .footer-address, .footer-lab, .footer-links {
+    margin: 4px 0;
+    line-height: 1.5;
+}
+
+.footer-contact p, .footer-address p, .footer-lab p, .footer-links a {
+    font-size: 12px; /* フォントサイズ */
+}
+
+.footer-label {
+    font-weight: bold;
+    margin-right: 5px;
+    color: #111; /* ラベルは少し濃い目の黒に */
+}
+
+.footer-links {
+    margin-top: 5px;
+}
+
+.footer-links a {
+    color: #4a6b8a; /* 寒色系のリンク色 */
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: #607d9c; /* ホバー時に少し濃い色に */
+    text-decoration: underline;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 20px 0;
+        margin-top: 30px;
+        font-size: 11px; /* モバイルではさらに小さく */
+    }
+
+    .footer-contact p, .footer-address p, .footer-lab p, .footer-links a {
+        font-size: 11px; /* フォントサイズ */
+    }
+    
+    .footer-container {
+        padding: 0 15px;
+    }
+    
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+    }
+    
+    .footer-links a {
+        margin: 2px 0;
+    }
+}
+
+/* スマートフォン向けの調整 */
+@media (max-width: 480px) {
+    .site-footer {
+        padding: 20px 0;
+        margin-top: 30px;
+        font-size: 8px; /* モバイルではさらに小さく */
+    }
+
+    .footer-contact p, .footer-address p, .footer-lab p, .footer-links a {
+        font-size: 8px; /* フォントサイズ */
+    }
+    
+    .footer-container {
+        padding: 0 15px;
+    }
+    
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+    }
+    
+    .footer-links a {
+        margin: 2px 0;
+    }
+}

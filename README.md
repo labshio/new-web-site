@@ -2,6 +2,31 @@
 
 研究室のプロジェクトを紹介するための[サイト](https://labshio.github.io/new-web-site/)です
 
+## サイトの構造（2025/05/17現在）
+
+```
+NEW-WEB-SITE/
+│── css/                        # cssのフォルダ
+    │── footer.css              # フッター関連
+    │── project-detail.css      # プロジェクト詳細ページ用
+    │── projects.css            # メインページ用
+    │── style.css               # その他共通
+│── img/                        # プロジェクト画像のフォルダ
+    │── logo.png                # ロゴ画像
+    │── project1.jpg
+    │── project2.jpg
+    ...
+│── projects/                   # プロジェクト詳細のフォルダ
+    │── projects_template.html  # プロジェクト詳細ページのテンプレート
+    │── project1.html
+    │── project2.html
+    ...
+│── footer.html                 # 共通フッター
+│── header.html                 # 共通ヘッダー
+│── index.html                  # メインページ
+│──*
+```
+
 ## コンテンツの更新について（2025/05/17現在）
 
 ### 1. 画像の追加
@@ -12,7 +37,7 @@
 
 「project_template.html」を「projects」フォルダ内にコピーし、ファイル名を「*プロジェクト名*.html」に変更
 
-プロジェクト名.html :
+<sub>プロジェクト名.html :</sub>
 ```
 <div class="project-content">
     <div class="project-header">
@@ -36,12 +61,12 @@
 </div>
 ```
 
-「プロジェクト名」、「日付」を変更
+「プロジェクト名」、「日付」を変更<br/>
 「プロジェクト名.jpg」の部分を対応するファイルと同じ名前に変更
 
 ### 3. メインページの変更
 
-index.html :
+<sub>index.html :</sub>
 ```
 <a href="projects/プロジェクト名.html" class="project-card" data-genre="プロジェクトタイプ(event, publish, researchから選択)">
     <div class="fixed-image-square">
@@ -58,8 +83,8 @@ index.html :
 </a>
 ```
 
-「プロジェクト名.html」、「プロジェクト画像.jpg」の部分を対応するファイルと同じ名前に変更
-「プロジェクトタイプ」、「プロジェクト名」、「日付」を変更
+「プロジェクト名.html」、「プロジェクト画像.jpg」の部分を対応するファイルと同じ名前に変更<br/>
+「プロジェクトタイプ(event, publish, researchから選択)」、「プロジェクト名」、「日付」を変更
 
 ### 4. 変更のコミット
 

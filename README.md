@@ -5,10 +5,12 @@
 #コンテンツの更新について（2025/05/17現在）
 
 ## 画像の追加
-imgフォルダ内にファイル名を「プロジェクト名.jpg」とした画像を追加
+「img」フォルダ内にファイル名を「プロジェクト名.jpg」とした画像を追加
 
 ## プロジェクト詳細ページの作成
 「project_template.html」をコピーし、ファイル名を「プロジェクト名.html」に変更
+
+プロジェクト名.html :
 ```
 <div class="project-content">
     <div class="project-header">
@@ -18,7 +20,7 @@ imgフォルダ内にファイル名を「プロジェクト名.jpg」とした�
     
     <div class="project-main-content">
         <div class="project-image-side">
-            <img src="../img/**プロジェクト名.jpg**" alt="プロジェクトメイン画像" class="project-image-main">
+            <img src="../img/プロジェクト名.jpg" alt="project-image-main" class="project-image-main">
         </div>
         
         <div class="project-text-side">
@@ -31,10 +33,12 @@ imgフォルダ内にファイル名を「プロジェクト名.jpg」とした�
     </div>
 </div>
 ```
-の「プロジェクト名」、「日付」を変更し、「プロジェクト名.jpg」の部分を対応するファイルと同じ名前に変更
+
+「プロジェクト名」、「日付」を変更し、「プロジェクト名.jpg」の部分を対応するファイルと同じ名前に変更
 
 ## メインページの変更
-index.htmlにおいて
+
+index.html :
 ```
 <a href="projects/プロジェクト名.html" class="project-card" data-genre="プロジェクトタイプ(event, publish, researchから選択)">
     <div class="fixed-image-square">
@@ -50,4 +54,9 @@ index.htmlにおいて
     <div class="project-square"></div>
 </a>
 ```
-の「プロジェクト名.html」、「プロジェクトタイプ」、「プロジェクト画像.jpg」の部分を対応するファイルと同じ名前に変更
+
+「プロジェクト名.html」、「プロジェクトタイプ」、「プロジェクト画像.jpg」の部分を対応するファイルと同じ名前に変更
+
+## 変更のコミット
+
+変更点をステージして「コミットしてプッシュ」

@@ -69,9 +69,18 @@ nav ul li a:hover {
 .page-title {
     padding: 30px 0px 20px 50px;
     display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.controls-container {
+    display: flex;
     align-items: center;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
     gap: 20px;
+    padding-right: 30px;
 }
 
 .back-arrow {
@@ -90,6 +99,7 @@ nav ul li a:hover {
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
+    flex: 1;
 }
 
 .tag-filter {
@@ -113,6 +123,25 @@ nav ul li a:hover {
     background-color: #80c0e0;
     color: white;
     border-color: #80c0e0;
+}
+
+/* シンプルなソートボタンのスタイル */
+.sort-button {
+    padding: 8px 16px;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #666;
+    white-space: nowrap;
+    margin-left: auto;
+}
+
+.sort-button:hover {
+    background-color: #e8e8e8;
+    color: #333;
 }
 
 .projects-grid {
@@ -259,7 +288,7 @@ nav ul li a:hover {
         font-size: 18px;
     }
     
-    .page-title {
+    .controls-container {
         flex-direction: column;
         align-items: flex-start;
         gap: 15px;
@@ -272,6 +301,12 @@ nav ul li a:hover {
     .tag-filter {
         font-size: 12px;
         padding: 6px 12px;
+    }
+    
+    .sort-button {
+        font-size: 12px;
+        padding: 6px 12px;
+        align-self: flex-end;
     }
 }
 

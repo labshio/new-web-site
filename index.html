@@ -14,14 +14,17 @@
     
     <!-- タグフィルター部分 -->
     <div class="page-title">
-        <div class="tag-filters">
-            <span class="tag-filter active" data-tag="All"># All</span>
-            <span class="tag-filter" data-tag="Design"># Design</span>
-            <span class="tag-filter" data-tag="Research"># Research</span>
-            <span class="tag-filter" data-tag="Thesis"># Thesis</span>
-            <span class="tag-filter" data-tag="Reading"># Reading</span>
-            <span class="tag-filter" data-tag="Publication"># Publication</span>
-            <span class="tag-filter" data-tag="Event"># Event</span>
+        <div class="controls-container">
+            <div class="tag-filters">
+                <span class="tag-filter active" data-tag="All"># All</span>
+                <span class="tag-filter" data-tag="Design"># Design</span>
+                <span class="tag-filter" data-tag="Research"># Research</span>
+                <span class="tag-filter" data-tag="Thesis"># Thesis</span>
+                <span class="tag-filter" data-tag="Reading"># Reading</span>
+                <span class="tag-filter" data-tag="Publication"># Publication</span>
+                <span class="tag-filter" data-tag="Event"># Event</span>
+            </div>
+            <div class="sort-button" data-sort="desc">↓ New</div>
         </div>
     </div>
     
@@ -175,25 +178,44 @@
             .then(response => response.text())
             .then(data => {
                 document.getElementById('header-container').innerHTML = data;
-                // ページタイトルを設定
-                document.querySelector('.title-text').innerHTML = '# Projects';
             });
         
         fetch('footer.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer-container').innerHTML = data;
+                // ページタイトルを設定
+                document.querySelector('.title-text').innerHTML = '# Projects';
             });
 
+        // プロジェクトの日付を自動更新する関数
+        function updateProjectDates() {
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            projectCards.forEach(card => {
+                const dataDate = card.getAttribute('data-date');
+                const projectDateElement = card.querySelector('.project-date');
+                
+                if (dataDate && projectDateElement) {
+                    projectDateElement.textContent = dataDate;
+                }
+            });
+        }
+
         // プロジェクトを日付順でソート
-        function sortProjectsByDate() {
+        function sortProjectsByDate(order = 'desc') {
             const grid = document.getElementById('projects-grid');
             const cards = Array.from(grid.querySelectorAll('.project-card'));
             
             cards.sort((a, b) => {
                 const dateA = a.getAttribute('data-date');
                 const dateB = b.getAttribute('data-date');
-                return dateB.localeCompare(dateA); // 降順（新しい順）
+                
+                if (order === 'desc') {
+                    return dateB.localeCompare(dateA); // 降順（新しい順）
+                } else {
+                    return dateA.localeCompare(dateB); // 昇順（古い順）
+                }
             });
             
             // 並び替えたカードを再配置
@@ -215,37 +237,14 @@
             });
         }
 
-        // プロジェクトの日付を自動更新する関数
-        function updateProjectDates() {
-            const projectCards = document.querySelectorAll('.project-card');
-            
-            projectCards.forEach(card => {
-                const dataDate = card.getAttribute('data-date');
-                const projectDateElement = card.querySelector('.project-date');
-                
-                if (dataDate && projectDateElement) {
-                    projectDateElement.textContent = dataDate;
-                }
-            });
-        }
-
-        // DOMContentLoadedイベントに追加
+        // イベントリスナーの設定
         document.addEventListener('DOMContentLoaded', function() {
-            // 既存のコード
-            sortProjectsByDate();
-            updateProjectDates(); // この行を追加
+            // 初期設定
+            updateProjectDates();
+            sortProjectsByDate('desc'); // デフォルトは新しい順
             
+            // タグフィルターのイベント
             const tagFilters = document.querySelectorAll('.tag-filter');
-            // 以下既存のコード...
-        });
-
-        // タグフィルタークリックイベント
-        document.addEventListener('DOMContentLoaded', function() {
-            // 初期ソート
-            sortProjectsByDate();
-            
-            const tagFilters = document.querySelectorAll('.tag-filter');
-            
             tagFilters.forEach(filter => {
                 filter.addEventListener('click', function() {
                     // アクティブクラスの切り替え
@@ -256,6 +255,24 @@
                     const selectedTag = this.getAttribute('data-tag');
                     filterProjects(selectedTag);
                 });
+            });
+            
+            // ソートボタンのイベント
+            const sortButton = document.querySelector('.sort-button');
+            sortButton.addEventListener('click', function() {
+                const currentSort = this.getAttribute('data-sort');
+                
+                if (currentSort === 'desc') {
+                    // 降順→昇順に変更
+                    this.setAttribute('data-sort', 'asc');
+                    this.innerHTML = '↑ Old';
+                    sortProjectsByDate('asc');
+                } else {
+                    // 昇順→降順に変更
+                    this.setAttribute('data-sort', 'desc');
+                    this.innerHTML = '↓ New';
+                    sortProjectsByDate('desc');
+                }
             });
         });
     </script>

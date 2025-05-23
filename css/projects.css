@@ -65,13 +65,27 @@ nav ul li a:hover {
     color: #333;
 }
 
-/* タグフィルター部分のスタイル */
+/* ページタイトル部分のスタイル */
 .page-title {
-    padding: 30px 0px 20px 50px;
+    padding: 30px 0px 10px 50px;
+}
+
+.title-container {
     display: flex;
-    align-items: flex-start;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     gap: 15px;
+}
+
+.title-text {
+    font-size: 20px;
+    font-weight: normal;
+    margin: 0;
+}
+
+/* タグフィルター部分のスタイル */
+.tag-filter-section {
+    padding: 10px 0px 20px 50px;
 }
 
 .controls-container {
@@ -79,8 +93,8 @@ nav ul li a:hover {
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    max-width: 1400px;
     gap: 20px;
-    padding-right: 30px;
 }
 
 .back-arrow {
@@ -88,11 +102,6 @@ nav ul li a:hover {
     color: #80c0e0;
     font-size: 24px;
     text-decoration: none;
-}
-
-.title-text {
-    font-size: 20px;
-    font-weight: normal;
 }
 
 .tag-filters {
@@ -125,18 +134,17 @@ nav ul li a:hover {
     border-color: #80c0e0;
 }
 
-/* シンプルなソートボタンのスタイル */
+/* ソートボタンのスタイル */
 .sort-button {
-    padding: 8px 16px;
+    padding: 6px 12px;
     background-color: #f8f8f8;
     border: 1px solid #ddd;
-    border-radius: 20px;
-    font-size: 14px;
+    border-radius: 15px;
+    font-size: 12px;
     cursor: pointer;
     transition: all 0.3s ease;
     color: #666;
     white-space: nowrap;
-    margin-left: auto;
 }
 
 .sort-button:hover {
@@ -280,18 +288,19 @@ nav ul li a:hover {
         height: 35px;
     }
     
-    nav, .page-title {
-        padding: 15px 30px;
+    nav, .page-title, .tag-filter-section {
+        padding-left: 30px;
+        padding-right: 30px;
     }
     
     .title-text {
         font-size: 18px;
     }
     
-    .controls-container {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
+    .title-container {
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
     }
     
     .tag-filters {
@@ -304,9 +313,8 @@ nav ul li a:hover {
     }
     
     .sort-button {
-        font-size: 12px;
-        padding: 6px 12px;
-        align-self: flex-end;
+        font-size: 11px;
+        padding: 5px 10px;
     }
 }
 

@@ -12,19 +12,24 @@
     <!-- ヘッダーをインクルード -->
     <div id="header-container"></div>
     
-    <!-- タグフィルター部分 -->
+    <!-- ページタイトルとソートボタン -->
     <div class="page-title">
-        <div class="controls-container">
-            <div class="tag-filters">
-                <span class="tag-filter active" data-tag="All"># All</span>
-                <span class="tag-filter" data-tag="Design"># Design</span>
-                <span class="tag-filter" data-tag="Research"># Research</span>
-                <span class="tag-filter" data-tag="Thesis"># Thesis</span>
-                <span class="tag-filter" data-tag="Reading"># Reading</span>
-                <span class="tag-filter" data-tag="Publication"># Publication</span>
-                <span class="tag-filter" data-tag="Event"># Event</span>
-            </div>
+        <div class="title-container">
+            <h2 class="title-text"># Projects</h2>
             <div class="sort-button" data-sort="desc">↓ New</div>
+        </div>
+    </div>
+    
+    <!-- タグフィルター部分 -->
+    <div class="tag-filter-section">
+        <div class="tag-filters">
+            <span class="tag-filter active" data-tag="All"># All</span>
+            <span class="tag-filter" data-tag="Design"># Design</span>
+            <span class="tag-filter" data-tag="Research"># Research</span>
+            <span class="tag-filter" data-tag="Thesis"># Thesis</span>
+            <span class="tag-filter" data-tag="Reading"># Reading</span>
+            <span class="tag-filter" data-tag="Publication"># Publication</span>
+            <span class="tag-filter" data-tag="Event"># Event</span>
         </div>
     </div>
     
@@ -184,8 +189,6 @@
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer-container').innerHTML = data;
-                // ページタイトルを設定
-                document.querySelector('.title-text').innerHTML = '# Projects';
             });
 
         // プロジェクトの日付を自動更新する関数

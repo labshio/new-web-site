@@ -12,25 +12,35 @@
     <!-- ヘッダーをインクルード -->
     <div id="header-container"></div>
     
-    <div class="projects-grid">
-        <a href="projects/project1.html" class="project-card" data-genre="event">
-            <!-- 画像用の透明正方形 -->
+    <!-- タグフィルター部分 -->
+    <div class="page-title">
+        <div class="tag-filters">
+            <span class="tag-filter active" data-tag="All"># All</span>
+            <span class="tag-filter" data-tag="Design"># Design</span>
+            <span class="tag-filter" data-tag="Research"># Research</span>
+            <span class="tag-filter" data-tag="Thesis"># Thesis</span>
+            <span class="tag-filter" data-tag="Reading"># Reading</span>
+            <span class="tag-filter" data-tag="Publication"># Publication</span>
+            <span class="tag-filter" data-tag="Event"># Event</span>
+        </div>
+    </div>
+    
+    <div class="projects-grid" id="projects-grid">
+        <a href="projects/project1.html" class="project-card" data-tags="Event" data-date="20250425">
             <div class="fixed-image-square">
                 <div class="project-image-container">
                     <img src="img/project1.jpg" alt="project1" class="project-image">
                 </div>
             </div>
-            <!-- タイトル用の透明正方形 -->
             <div class="fixed-text-square">
                 <div class="project-info">
                     <span class="project-title">project1</span><span class="project-separator"> / </span><span class="project-date">20250425</span>
                 </div>
             </div>
-            <!-- 色付き正方形 - ホバー時に縮小するのみ -->
             <div class="project-square"></div>
         </a>
         
-        <a href="projects/project2.html" class="project-card" data-genre="publish">
+        <a href="projects/project2.html" class="project-card" data-tags="Publication" data-date="20250410">
             <div class="fixed-image-square">
                 <div class="project-image-container">
                     <img src="img/project2.jpg" alt="project2" class="project-image">
@@ -44,7 +54,7 @@
             <div class="project-square"></div>
         </a>
         
-        <a href="projects/project3.html" class="project-card" data-genre="event">
+        <a href="projects/project3.html" class="project-card" data-tags="Event" data-date="20250328">
             <div class="fixed-image-square">
                 <div class="project-image-container">
                     <img src="img/project3.jpg" alt="project3" class="project-image">
@@ -58,7 +68,7 @@
             <div class="project-square"></div>
         </a>
         
-        <a href="projects/project4.html" class="project-card" data-genre="event">
+        <a href="projects/project4.html" class="project-card" data-tags="Thesis" data-date="20250312">
             <div class="fixed-image-square">
                 <div class="project-image-container">
                     <img src="img/project4.jpg" alt="project4" class="project-image">
@@ -72,7 +82,7 @@
             <div class="project-square"></div>
         </a>
         
-        <a href="projects/project5.html" class="project-card" data-genre="event">
+        <a href="projects/project5.html" class="project-card" data-tags="Research" data-date="20250227">
             <div class="fixed-image-square">
                 <div class="project-image-container">
                     <img src="img/project5.jpg" alt="project5" class="project-image">
@@ -86,7 +96,7 @@
             <div class="project-square"></div>
         </a>
         
-        <a href="projects/project6.html" class="project-card" data-genre="publish">
+        <a href="projects/project6.html" class="project-card" data-tags="Publication" data-date="20250215">
             <div class="fixed-image-square">
                 <div class="project-image-container">
                     <img src="img/project6.jpg" alt="project6" class="project-image">
@@ -100,7 +110,7 @@
             <div class="project-square"></div>
         </a>
         
-        <a href="projects/project7.html" class="project-card" data-genre="research">
+        <a href="projects/project7.html" class="project-card" data-tags="Reading" data-date="20250130">
             <div class="fixed-image-square">
                 <div class="project-image-container">
                     <img src="img/project7.jpg" alt="project7" class="project-image">
@@ -114,7 +124,7 @@
             <div class="project-square"></div>
         </a>
         
-        <a href="projects/project8.html" class="project-card" data-genre="event">
+        <a href="projects/project8.html" class="project-card" data-tags="Event" data-date="20250115">
             <div class="fixed-image-square">
                 <div class="project-image-container">
                     <img src="img/project8.jpg" alt="project8" class="project-image">
@@ -128,7 +138,7 @@
             <div class="project-square"></div>
         </a>
         
-        <a href="projects/project9.html" class="project-card" data-genre="event">
+        <a href="projects/project9.html" class="project-card" data-tags="Thesis" data-date="20241228">
             <div class="fixed-image-square">
                 <div class="project-image-container">
                     <img src="img/project9.jpg" alt="project9" class="project-image">
@@ -142,7 +152,7 @@
             <div class="project-square"></div>
         </a>
         
-        <a href="projects/project10.html" class="project-card" data-genre="research">
+        <a href="projects/project10.html" class="project-card" data-tags="Research" data-date="20241212">
             <div class="fixed-image-square">
                 <div class="project-image-container">
                     <img src="img/project10.jpg" alt="project10" class="project-image">
@@ -160,7 +170,7 @@
     <div id="footer-container"></div>
 
     <script>
-        // ヘッダーを読み込む
+        // ヘッダーとフッターを読み込む
         fetch('header.html')
             .then(response => response.text())
             .then(data => {
@@ -168,12 +178,62 @@
                 // ページタイトルを設定
                 document.querySelector('.title-text').innerHTML = '# Projects';
             });
-        // フッターを読み込む
+        
         fetch('footer.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer-container').innerHTML = data;
             });
+
+        // プロジェクトを日付順でソート
+        function sortProjectsByDate() {
+            const grid = document.getElementById('projects-grid');
+            const cards = Array.from(grid.querySelectorAll('.project-card'));
+            
+            cards.sort((a, b) => {
+                const dateA = a.getAttribute('data-date');
+                const dateB = b.getAttribute('data-date');
+                return dateB.localeCompare(dateA); // 降順（新しい順）
+            });
+            
+            // 並び替えたカードを再配置
+            cards.forEach(card => grid.appendChild(card));
+        }
+
+        // タグフィルター機能
+        function filterProjects(selectedTag) {
+            const cards = document.querySelectorAll('.project-card');
+            
+            cards.forEach(card => {
+                const tags = card.getAttribute('data-tags');
+                
+                if (selectedTag === 'All' || tags.includes(selectedTag)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // タグフィルタークリックイベント
+        document.addEventListener('DOMContentLoaded', function() {
+            // 初期ソート
+            sortProjectsByDate();
+            
+            const tagFilters = document.querySelectorAll('.tag-filter');
+            
+            tagFilters.forEach(filter => {
+                filter.addEventListener('click', function() {
+                    // アクティブクラスの切り替え
+                    tagFilters.forEach(f => f.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // フィルタリング実行
+                    const selectedTag = this.getAttribute('data-tag');
+                    filterProjects(selectedTag);
+                });
+            });
+        });
     </script>
 </body>
 </html>

@@ -1,3 +1,120 @@
+/* Import Noto Sans Japanese from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    padding: 30px 50px 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: #ffffff;
+    width: 100%;
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    height: 50px;
+    width: auto;
+    transition: opacity 0.3s;
+}
+
+.logo-image:hover {
+    opacity: 0.8;
+}
+
+nav {
+    padding: 20px 50px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-right: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #888;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #333;
+}
+
+/* タグフィルター部分のスタイル */
+.page-title {
+    padding: 30px 0px 20px 50px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.back-arrow {
+    margin-right: 20px;
+    color: #80c0e0;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.title-text {
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.tag-filters {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.tag-filter {
+    padding: 8px 16px;
+    background-color: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: #666;
+}
+
+.tag-filter:hover {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.tag-filter.active {
+    background-color: #80c0e0;
+    color: white;
+    border-color: #80c0e0;
+}
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 最大4列に固定 */
@@ -12,6 +129,11 @@
     color: inherit;
     display: block;
     position: relative; /* 子要素の絶対位置指定の基準点 */
+    transition: opacity 0.3s ease;
+}
+
+.project-card.hidden {
+    display: none;
 }
 
 /* 画像用の透明正方形 */
@@ -48,24 +170,30 @@
     transform-origin: center; /* 縮小の中心点を明示的に設定 */
 }
 
-/* ジャンル別カラー設定 - さらに淡い青系パステル */
-.project-card[data-genre="event"] .project-square {
-    background-color: #a0c0e0; /* イベント */
+/* タグ別カラー設定 */
+.project-card[data-tags*="Design"] .project-square {
+    background-color: #ff9999; /* 赤系 */
 }
 
-.project-card[data-genre="publish"] .project-square {
-    background-color: #c0c080; /* 出版 */
+.project-card[data-tags*="Research"] .project-square {
+    background-color: #99ccff; /* 青系 */
 }
 
-.project-card[data-genre="research"] .project-square {
-    background-color: #c0e0a0; /* 研究 */
+.project-card[data-tags*="Thesis"] .project-square {
+    background-color: #99ff99; /* 緑系 */
 }
 
-/* 追加のジャンルカラー設定例
-.project-card[data-genre="additional"] .project-square {
-    background-color: #ffffff;
+.project-card[data-tags*="Reading"] .project-square {
+    background-color: #ffcc99; /* オレンジ系 */
 }
-*/
+
+.project-card[data-tags*="Publication"] .project-square {
+    background-color: #cc99ff; /* 紫系 */
+}
+
+.project-card[data-tags*="Event"] .project-square {
+    background-color: #ffff99; /* 黄系 */
+}
 
 /* ホバー時の色付き正方形の縮小 */
 .project-card:hover .project-square {
@@ -111,6 +239,82 @@
 /* 日付 - 細字 */
 .project-date {
     font-weight: normal;
+}
+
+/* メディアクエリの改善 */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 30px;
+    }
+    
+    .logo-image {
+        height: 35px;
+    }
+    
+    nav, .page-title {
+        padding: 15px 30px;
+    }
+    
+    .title-text {
+        font-size: 18px;
+    }
+    
+    .page-title {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .tag-filters {
+        gap: 10px;
+    }
+    
+    .tag-filter {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 600px) {
+    header, nav, .page-title {
+        padding: 12px 20px;
+    }
+    
+    .logo-image {
+        height: 30px;
+    }
+    
+    nav ul {
+        flex-wrap: wrap;
+    }
+    
+    nav ul li {
+        margin-right: 15px;
+        margin-bottom: 5px;
+    }
+    
+    .title-text {
+        font-size: 16px;
+    }
+}
+
+/* スマートフォン向けの調整 */
+@media (max-width: 480px) {
+    header {
+        padding: 10px 15px;
+    }
+    
+    .logo-image {
+        height: 25px;
+    }
+    
+    .page-title {
+        padding: 10px 15px;
+    }
+    
+    .title-text {
+        font-size: 15px;
+    }
 }
 
 /* レスポンシブなメディアクエリを調整 - 最大4列に制限 */

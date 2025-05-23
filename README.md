@@ -31,7 +31,7 @@ NEW-WEB-SITE/
 
 ### 1. 最新の状態をプル
 
-bashで
+bash（ターミナル）で
 ```
 git pull origin main
 ```
@@ -76,7 +76,7 @@ git pull origin main
 
 <sub>index.html :</sub>
 ```
-<a href="projects/プロジェクト名.html" class="project-card" data-genre="プロジェクトタイプ(event, publish, researchから選択)">
+<a href="projects/プロジェクト名.html" class="project-card" data-genre="プロジェクトタイプ">
     <div class="fixed-image-square">
         <div class="project-image-container">
             <img src="img/プロジェクト画像.jpg" alt="project" class="project-image">
@@ -92,7 +92,7 @@ git pull origin main
 ```
 
 「プロジェクト名.html」、「プロジェクト画像.jpg」の部分を対応するファイルと同じ名前に変更<br/>
-「プロジェクトタイプ(event, publish, researchから選択)」、「プロジェクト名」、「日付」を変更
+「プロジェクトタイプ(Design, Research, Thesis, Reading, Publication, Eventから選択)」、「プロジェクト名」、「日付」を変更
 
 ### 5. 変更のコミット
 

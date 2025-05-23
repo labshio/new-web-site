@@ -76,15 +76,15 @@ git pull origin main
 
 <sub>index.html :</sub>
 ```
-<a href="projects/プロジェクト名.html" class="project-card" data-genre="プロジェクトタイプ">
+<a href="projects/プロジェクト名.html" class="project-card" data-tags="プロジェクトタイプ" data-date="日付">
     <div class="fixed-image-square">
         <div class="project-image-container">
-            <img src="img/プロジェクト画像.jpg" alt="project" class="project-image">
+            <img src="img/プロジェクト名.jpg" alt="project8" class="project-image">
         </div>
     </div>
     <div class="fixed-text-square">
         <div class="project-info">
-            <span class="project-title">プロジェクト名</span><span class="project-separator"> / </span><span class="project-date">日付</span>
+            <span class="project-title">プロジェクト名</span><span class="project-separator"> / </span><span class="project-date"></span>
         </div>
     </div>
     <div class="project-square"></div>

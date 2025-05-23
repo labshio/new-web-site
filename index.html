@@ -34,7 +34,7 @@
             </div>
             <div class="fixed-text-square">
                 <div class="project-info">
-                    <span class="project-title">project1</span><span class="project-separator"> / </span><span class="project-date">20250425</span>
+                    <span class="project-title">project1</span><span class="project-separator"> / </span><span class="project-date"></span>
                 </div>
             </div>
             <div class="project-square"></div>
@@ -48,7 +48,7 @@
             </div>
             <div class="fixed-text-square">
                 <div class="project-info">
-                    <span class="project-title">project2</span><span class="project-separator"> / </span><span class="project-date">20250410</span>
+                    <span class="project-title">project2</span><span class="project-separator"> / </span><span class="project-date"></span>
                 </div>
             </div>
             <div class="project-square"></div>
@@ -62,7 +62,7 @@
             </div>
             <div class="fixed-text-square">
                 <div class="project-info">
-                    <span class="project-title">project3</span><span class="project-separator"> / </span><span class="project-date">20250328</span>
+                    <span class="project-title">project3</span><span class="project-separator"> / </span><span class="project-date"></span>
                 </div>
             </div>
             <div class="project-square"></div>
@@ -76,7 +76,7 @@
             </div>
             <div class="fixed-text-square">
                 <div class="project-info">
-                    <span class="project-title">project4</span><span class="project-separator"> / </span><span class="project-date">20250312</span>
+                    <span class="project-title">project4</span><span class="project-separator"> / </span><span class="project-date"></span>
                 </div>
             </div>
             <div class="project-square"></div>
@@ -90,7 +90,7 @@
             </div>
             <div class="fixed-text-square">
                 <div class="project-info">
-                    <span class="project-title">project5</span><span class="project-separator"> / </span><span class="project-date">20250227</span>
+                    <span class="project-title">project5</span><span class="project-separator"> / </span><span class="project-date"></span>
                 </div>
             </div>
             <div class="project-square"></div>
@@ -104,7 +104,7 @@
             </div>
             <div class="fixed-text-square">
                 <div class="project-info">
-                    <span class="project-title">project6</span><span class="project-separator"> / </span><span class="project-date">20250215</span>
+                    <span class="project-title">project6</span><span class="project-separator"> / </span><span class="project-date"></span>
                 </div>
             </div>
             <div class="project-square"></div>
@@ -118,7 +118,7 @@
             </div>
             <div class="fixed-text-square">
                 <div class="project-info">
-                    <span class="project-title">project7</span><span class="project-separator"> / </span><span class="project-date">20250130</span>
+                    <span class="project-title">project7</span><span class="project-separator"> / </span><span class="project-date"></span>
                 </div>
             </div>
             <div class="project-square"></div>
@@ -132,7 +132,7 @@
             </div>
             <div class="fixed-text-square">
                 <div class="project-info">
-                    <span class="project-title">project8</span><span class="project-separator"> / </span><span class="project-date">20250115</span>
+                    <span class="project-title">project8</span><span class="project-separator"> / </span><span class="project-date"></span>
                 </div>
             </div>
             <div class="project-square"></div>
@@ -146,7 +146,7 @@
             </div>
             <div class="fixed-text-square">
                 <div class="project-info">
-                    <span class="project-title">project9</span><span class="project-separator"> / </span><span class="project-date">20241228</span>
+                    <span class="project-title">project9</span><span class="project-separator"> / </span><span class="project-date"></span>
                 </div>
             </div>
             <div class="project-square"></div>
@@ -160,13 +160,13 @@
             </div>
             <div class="fixed-text-square">
                 <div class="project-info">
-                    <span class="project-title">project10</span><span class="project-separator"> / </span><span class="project-date">20241212</span>
+                    <span class="project-title">project10</span><span class="project-separator"> / </span><span class="project-date"></span>
                 </div>
             </div>
             <div class="project-square"></div>
         </a>
     </div>
-    
+
     <div id="footer-container"></div>
 
     <script>
@@ -214,6 +214,30 @@
                 }
             });
         }
+
+        // プロジェクトの日付を自動更新する関数
+        function updateProjectDates() {
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            projectCards.forEach(card => {
+                const dataDate = card.getAttribute('data-date');
+                const projectDateElement = card.querySelector('.project-date');
+                
+                if (dataDate && projectDateElement) {
+                    projectDateElement.textContent = dataDate;
+                }
+            });
+        }
+
+        // DOMContentLoadedイベントに追加
+        document.addEventListener('DOMContentLoaded', function() {
+            // 既存のコード
+            sortProjectsByDate();
+            updateProjectDates(); // この行を追加
+            
+            const tagFilters = document.querySelectorAll('.tag-filter');
+            // 以下既存のコード...
+        });
 
         // タグフィルタークリックイベント
         document.addEventListener('DOMContentLoaded', function() {

@@ -186,6 +186,11 @@ nav ul li a:hover {
     z-index: 3; /* 最前面に配置 */
 }
 
+/* ホバー時の色付き正方形の縮小 */
+.fixed-image-square:hover .fixed-image-square {
+    transform: scale(0.8);
+}
+
 /* タイトル用の透明正方形 */
 .fixed-text-square {
     width: 100%;
@@ -233,10 +238,6 @@ nav ul li a:hover {
     background-color: #ede4c5; /* 黄系 */
 }
 
-/* ホバー時の色付き正方形の縮小 */
-.fixed-image-square:hover .project-square {
-    transform: scale(0.8);
-}
 
 /* 画像コンテナを固定画像正方形内に配置 */
 .project-image-container {

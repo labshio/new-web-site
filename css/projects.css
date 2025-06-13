@@ -9,7 +9,7 @@
 }
 
 body {
-    background-color: #ffffff;
+    background-color: #f7df77;
     color: #333;
     line-height: 1.6;
 }
@@ -20,7 +20,7 @@ header {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #e0e0e0;
-    background-color: #ffffff;
+    background-color: #f7df77;
     width: 100%;
     position: relative;
 }
@@ -159,6 +159,7 @@ nav ul li a:hover {
     padding: 20px 30px 30px; /* パディングも調整 */
     max-width: 1400px; /* 最大幅を調整して4列に制限 */
     margin: 0 auto;
+    background-color: #f7df77;
 }
 
 .project-card {

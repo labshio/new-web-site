@@ -174,23 +174,33 @@ nav ul li a:hover {
     display: none;
 }
 
-/* 画像用の透明正方形 */
 .fixed-image-square {
     width: 100%;
     height: 0;
     padding-bottom: 100%; /* 正方形を維持 */
     position: absolute;
-    transition: transform 1.0s ease;
     top: 0;
     left: 0;
-    z-index: 3; /* 最前面に配置 */
+    overflow: hidden;
+    z-index: 3;
 }
 
-/* ホバー時の色付き正方形の縮小 */
-.fixed-image-square:hover.fixed-image-square {
-    transform: scale(0.8);
+.fixed-image-square  {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: clip-path 0.3s ease;
+    clip-path: inset(0% 0% 0% 0%);
 }
 
+.fixed-image-square:hover  {
+    clip-path: inset(10% 10% 10% 10%);
+}
+
+    
 /* タイトル用の透明正方形 */
 .fixed-text-square {
     width: 100%;

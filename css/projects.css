@@ -191,10 +191,9 @@ nav ul li a:hover {
     height: 0;
     padding-bottom: 100%; /* 正方形を維持 */
     position: absolute;
-    transition: transform 0.3s ease;
     top: 0;
     left: 0;
-    z-index: 2; /* 色付き正方形より下に配置 */
+    z-index: 1; /* 色付き正方形より下に配置 */
 }
 
 /* 色付き正方形 - ホバー時に縮小するのみ */
@@ -204,7 +203,8 @@ nav ul li a:hover {
     padding-bottom: 100%; /* 正方形を維持 */
     position: relative;
     background-color: #80a0c0; /* デフォルトの背景色 - 落ち着いた青 */
-    z-index: 1; /* 固定テキスト正方形の上、固定画像正方形の下に表示 */
+    transition: transform 1.0s ease;
+    z-index: 2; /* 固定テキスト正方形の上、固定画像正方形の下に表示 */
     transform-origin: center; /* 縮小の中心点を明示的に設定 */
 }
 
@@ -234,7 +234,7 @@ nav ul li a:hover {
 }
 
 /* ホバー時の色付き正方形の縮小 */
-.project-square :hover .project-square {
+.project-card:hover .project-square {
     transform: scale(0.8);
 }
 
@@ -243,8 +243,8 @@ nav ul li a:hover {
     position: absolute;
     top: 10%;
     left: 10%;
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
     overflow: hidden;
 }
 

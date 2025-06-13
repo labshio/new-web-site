@@ -234,7 +234,7 @@ nav ul li a:hover {
 }
 
 /* ホバー時の色付き正方形の縮小 */
-.project-card:hover .project-square {
+.project-square :hover .project-square {
     transform: scale(0.8);
 }
 

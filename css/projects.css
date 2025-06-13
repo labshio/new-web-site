@@ -187,7 +187,7 @@ nav ul li a:hover {
 }
 
 /* ホバー時の色付き正方形の縮小 */
-.fixed-image-square:hover .fixed-image-square {
+.fixed-image-square:hover.fixed-image-square {
     transform: scale(0.8);
 }
 

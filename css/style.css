@@ -143,85 +143,39 @@ nav ul li a:hover {
         font-size: 15px;
     }
 }
-/* ローディング画面 */
+/* ローディング全体 */
 #loading {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   background: #fff352;
-  z-index: 9999;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  overflow: hidden;
+  z-index: 9999;
   transition: opacity 1s ease;
 }
 
-/* ローディング非表示用 */
-#loading.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* タイトル */
+/* サイト名テキスト */
 .site-name {
   font-size: 2.5rem;
   font-weight: bold;
-  color: black;
   opacity: 0;
-  animation: fadeInText 1s ease forwards;
-  animation-delay: 1.8s;
+  animation: fadeIn 1.5s ease forwards;
 }
 
-/* テキストフェード */
-@keyframes fadeInText {
+/* フェードインアニメーション */
+@keyframes fadeIn {
   to {
     opacity: 1;
   }
 }
 
-/* 斜線の親（右上→左下に広がるよう配置） */
-.diagonal-lines {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transform: rotate(45deg);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+/* ローディング完了時の非表示 */
+#loading.hidden {
+  opacity: 0;
   pointer-events: none;
 }
 
-/* 各斜線 */
-.line {
-  width: 0;
-  height: 4px;
-  background: white;
-  opacity: 0;
-  transform: translateX(100%);
-  animation: drawLine 0.8s forwards ease-out;
-}
-
-.line:nth-child(1) { animation-delay: 0.0s; }
-.line:nth-child(2) { animation-delay: 0.1s; }
-.line:nth-child(3) { animation-delay: 0.2s; }
-.line:nth-child(4) { animation-delay: 0.3s; }
-.line:nth-child(5) { animation-delay: 0.4s; }
-.line:nth-child(6) { animation-delay: 0.5s; }
-.line:nth-child(7) { animation-delay: 0.6s; }
-
-/* 線のアニメーション：右から左にスライド＋伸びる */
-@keyframes drawLine {
-  0% {
-    width: 0;
-    opacity: 0;
-    transform: translateX(100%);
-  }
-  100% {
-    width: 120%;
-    opacity: 1;
-    transform: translateX(0);
-  }
-}

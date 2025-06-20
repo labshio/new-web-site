@@ -159,7 +159,7 @@ nav ul li a:hover {
     padding: 20px 30px 30px; /* パディングも調整 */
     max-width: 1400px; /* 最大幅を調整して4列に制限 */
     margin: 0 auto;
-    background-color: #f7df77;
+    background-color: #fff352;
 }
 
 .project-card {

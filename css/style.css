@@ -150,32 +150,81 @@ nav ul li a:hover {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: #fff352;
+  background: #ffee44; /* 黄色背景 */
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   z-index: 9999;
   transition: opacity 1s ease;
+  overflow: hidden;
 }
 
-/* サイト名テキスト */
+/* 斜線の親 */
+.diagonal-lines {
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 200px;
+  height: 200px;
+  transform: rotate(45deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  animation: slideIn 1.2s ease-out forwards;
+}
+
+/* 各線 */
+.diagonal-lines .line {
+  height: 8px;
+  width: 150px;
+  background: white;
+  opacity: 0;
+  animation: lineAppear 0.5s ease-out forwards;
+}
+
+.diagonal-lines .line:nth-child(1) { animation-delay: 0.0s; }
+.diagonal-lines .line:nth-child(2) { animation-delay: 0.1s; }
+.diagonal-lines .line:nth-child(3) { animation-delay: 0.2s; }
+.diagonal-lines .line:nth-child(4) { animation-delay: 0.3s; }
+.diagonal-lines .line:nth-child(5) { animation-delay: 0.4s; }
+.diagonal-lines .line:nth-child(6) { animation-delay: 0.5s; }
+.diagonal-lines .line:nth-child(7) { animation-delay: 0.6s; }
+
+/* テキスト */
 .site-name {
   font-size: 2.5rem;
   font-weight: bold;
+  color: black;
   opacity: 0;
-  animation: fadeIn 1.5s ease forwards;
+  animation: fadeInText 1.5s ease forwards;
+  animation-delay: 1.2s;
 }
 
-/* フェードインアニメーション */
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
-
-/* ローディング完了時の非表示 */
+/* ローディング非表示 */
 #loading.hidden {
   opacity: 0;
   pointer-events: none;
 }
 
+/* アニメーション定義 */
+@keyframes lineAppear {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInText {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: rotate(45deg) translateX(100%);
+  }
+  to {
+    transform: rotate(45deg) translateX(0);
+  }
+}

@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
+    <!-- ローディング画面（中央にサイト名を表示） -->
+<div id="loading">
+  <h1 class="site-name">Shiozaki Lablatory</h1>
+</div>
     <!-- ヘッダーをインクルード -->
     <div id="header-container"></div>
     
@@ -242,6 +246,12 @@
 
         // イベントリスナーの設定
         document.addEventListener('DOMContentLoaded', function() {
+            // ローディング画面を2秒後にフェードアウト
+const loadingScreen = document.getElementById('loading');
+setTimeout(() => {
+    loadingScreen.classList.add('hidden');
+}, 2000);
+
             // 初期設定
             updateProjectDates();
             sortProjectsByDate('desc'); // デフォルトは新しい順

@@ -9,7 +9,7 @@
 }
 
 body {
-    background-color: #fff352;
+    background-color: #ffffff;
     color: #333;
     line-height: 1.6;
 }
@@ -20,7 +20,7 @@ header {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #e0e0e0;
-    background-color: #fff352;
+    background-color: #ffffff;
     width: 100%;
     position: relative;
 }
@@ -150,7 +150,7 @@ nav ul li a:hover {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: #fff352;
+  background: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;

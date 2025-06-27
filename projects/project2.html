@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>details | shiozaki_lab_projects</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/project-detail.css">
+    <link rel="stylesheet" href="../css/footer.css">
+</head>
+<body>
+    <!-- ヘッダーをインクルード -->
+    <div id="header-container"></div>
+
+    <div class="page-title">
+        <h2 class="title-text"></h2>
+    </div>
+    
+    <div class="project-content">
+        <div class="project-header">
+            <h1 class="project-title">project2</h1>
+            <div class="project-date">20250425</div>
+        </div>
+        
+        <div class="project-main-content">
+            <div class="project-image-side">
+                <img src="../img/project2.jpg" alt="プロジェクトメイン画像" class="project-image-main">
+            </div>
+            
+            <div class="project-text-side">
+                <div class="project-description">
+                    <p>このプロジェクトの詳細説明がここに入ります。複数の段落で構成されており、プロジェクトの背景、目的、プロセス、成果などを詳細に記述します。このテキストは実際のプロジェクトに合わせて変更してください。</p>
+                    <p>二段落目の説明文がここに入ります。プロジェクトの特徴や重要なポイントについて述べることができます。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+    
+    <script>
+        // ヘッダーを読み込む
+        fetch('../header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-container').innerHTML = data;
+                // ヘッダーの調整（相対パスの修正）
+                const logoLink = document.querySelector('.logo a');
+                logoLink.href = '../index.html';
+                const logoImage = document.querySelector('.logo-image');
+                logoImage.src = '../img/logo.png';
+                
+                // 戻るボタンを追加
+                const pageTitle = document.querySelector('.page-title');
+                const backArrow = document.createElement('a');
+                backArrow.href = '../index.html';
+                backArrow.className = 'back-arrow';
+                backArrow.textContent = '<';
+                pageTitle.insertBefore(backArrow, pageTitle.firstChild);
+                
+                // ページタイトルを設定
+                document.querySelector('.title-text').innerHTML = '# Project Details';
+            });
+
+        // フッターを読み込む
+        fetch('../footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+            });
+    </script>
+</body>
+</html>

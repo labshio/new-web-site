@@ -2,10 +2,10 @@
 .site-footer {
     padding: 15px 0;
     margin-top: 50px;
-    background-color: #ffffff; /* 黄色背景 */
+    background-color: #eeebdd; /* 黄色背景 */
     color: #3f4691; /* 黒文字 */
     font-size: 12px; /* 小さいフォント */
-    border-top: 1px solid #e0e0e0; /* 上部に細い境界線 */
+    border-top: 1px solid #eeebdd; /* 上部に細い境界線 */
 }
 
 .footer-container {

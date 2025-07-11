@@ -225,27 +225,27 @@ nav ul li a:hover {
 
 /* タグ別カラー設定 */
 .project-card[data-tags*="Design"] .project-square {
-    background-color: #004389; /* 赤系 */
+    background-color: #ffffff; /* 赤系 */
 }
 
 .project-card[data-tags*="Research"] .project-square {
-    background-color: #006284; /* 青系 */
+    background-color: #ffffff; /* 青系 */
 }
 
 .project-card[data-tags*="Thesis"] .project-square {
-    background-color: #314263; /* 緑系 */
+    background-color: #ffffff; /* 緑系 */
 }
 
 .project-card[data-tags*="Reading"] .project-square {
-    background-color: #3b6384; /* オレンジ系 */
+    background-color: #ffffff; /* オレンジ系 */
 }
 
 .project-card[data-tags*="Publication"] .project-square {
-    background-color: #514f8e; /* 紫系 */
+    background-color: #ffffff; /* 紫系 */
 }
 
 .project-card[data-tags*="Event"] .project-square {
-    background-color: #0b79ab; /* 黄系 */
+    background-color: #ffffff; /* 黄系 */
 }
 
 

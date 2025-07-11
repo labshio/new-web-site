@@ -99,7 +99,7 @@ nav ul li a:hover {
 
 .back-arrow {
     margin-right: 20px;
-    color: #80c0e0;
+    color: #ffffff;
     font-size: 24px;
     text-decoration: none;
 }
@@ -113,8 +113,8 @@ nav ul li a:hover {
 
 .tag-filter {
     padding: 8px 16px;
-    background-color: #eeebdd;
-    border: 1px solid #eeebdd;
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
     border-radius: 20px;
     font-size: 14px;
     cursor: pointer;
@@ -124,12 +124,12 @@ nav ul li a:hover {
 }
 
 .tag-filter:hover {
-    background-color: #eeebdd;
+    background-color: #ffffff;
     color: #333;
 }
 
 .tag-filter.active {
-    background-color: #80c0e0;
+    background-color: #3f4691;
     color: white;
     border-color: #80c0e0;
 }
@@ -237,15 +237,15 @@ nav ul li a:hover {
 }
 
 .project-card[data-tags*="Reading"] .project-square {
-    background-color: #ffffff; /* オレンジ系 */
+    background-color: #eeebdd; /* オレンジ系 */
 }
 
 .project-card[data-tags*="Publication"] .project-square {
-    background-color: #ffffff; /* 紫系 */
+    background-color: #eeebdd; /* 紫系 */
 }
 
 .project-card[data-tags*="Event"] .project-square {
-    background-color: #ffffff; /* 黄系 */
+    background-color: #eeebdd; /* 黄系 */
 }
 
 

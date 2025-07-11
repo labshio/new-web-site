@@ -272,7 +272,7 @@ nav ul li a:hover {
     position: absolute;
     bottom: 5px;
     left: 10%; /* 画像コンテナと同じ左オフセット */
-    color: #ffffff; /* 文字色を白に */
+    color: #000000; /* 文字色を白に */
 }
 
 /* プロジェクトタイトル - 太字 */

@@ -131,7 +131,7 @@ nav ul li a:hover {
 .tag-filter.active {
     background-color: #3f4691;
     color: white;
-    border-color: #80c0e0;
+    border-color: #3f4691;
 }
 
 /* ソートボタンのスタイル */

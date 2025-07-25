@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>details | shiozaki_lab_projects</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/project-detail.css">
+    <link rel="stylesheet" href="../css/footer.css">
+</head>
+<body>
+    <!-- ヘッダーをインクルード -->
+    <div id="header-container"></div>
+
+    <div class="page-title">
+        <h2 class="title-text"></h2>
+    </div>
+    
+    <div class="project-content">
+        <div class="project-header">
+            <h1 class="project-title">大塚・三業通りの住宅プロジェクト</h1>
+            <div class="project-date">201703</div>
+        </div>
+        
+        <div class="project-main-content">
+            <div class="project-image-side">
+                <img src="../img/大塚・三業通りの住宅プロジェクト.webp" alt="プロジェクトメイン画像" class="project-image-main">
+            </div>
+            
+            <div class="project-text-side">
+                <div class="project-description">
+                    <p>大塚駅から10分ほど歩いた場所に建つ、木造3階建の住宅である。私は学部4年のときに基本設計スタディ、修士1年のときに実施設計図面作成と現場監理を担当した。施主が天井の高い空間を要望したこと、1 階は手前部分に駐車スペースを設けることなどの条件から、建築のボリューム感やプランの構成はスタディの早い段階でおおよそ確定していたように思う。実施プロジェクトに取り組むのは初めての経験で、確認申請や現場とのやりとりなど、ほぼ何もわからないまま格闘する日々が続いた。印象に残っているのは、工務店との初回見積打合せだ。我々が描いてきた見積図を現場監督が初見で確認し、その場で施工計画を組み上げていく。図面が建築をつくるための言語として使われる瞬間を初めて目撃し、それまで自分が描いてきたものの意味を改めて思い知らされた。</p>
+                    <p>現場では、2階ホールの壁塗装と3階天井のアルミホイル貼り仕上げなど、自主施工も行った。2階の塗装は、よく見られる単純な白塗装とは雰囲気を変えるために、若干ムラが出るようにスポンジで叩いて塗っていく方法を取ったため、現場が休みの週末などに研究室総出で作業を行なった。アルミホイル貼りについても、既に他の作品で試みられているものとは異なる見え方になるように、手で千切ったアルミホイルを、室の形と角度をつけて貼る方法を取った。2 階の吹抜け部分に設置する造付けベンチについて話しているときに、座面の下に入れる梁の形状を、ベンチの中央で梁せいが小さくなる形にしたい、と先生が言い出した。坂本先生のベンチのデザインから距離を取りたいという話もされていたかと思う。そのような、合理と不合理の間のバランスをとりながら全体が組み上がっているのが、この住宅の特徴ではないかとも思っている。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+    
+    <script>
+        // ヘッダーを読み込む
+        fetch('../header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-container').innerHTML = data;
+                // ヘッダーの調整（相対パスの修正）
+                const logoLink = document.querySelector('.logo a');
+                logoLink.href = '../index.html';
+                const logoImage = document.querySelector('.logo-image');
+                logoImage.src = '../img/logo.png';
+                
+                // 戻るボタンを追加
+                const pageTitle = document.querySelector('.page-title');
+                const backArrow = document.createElement('a');
+                backArrow.href = '../index.html';
+                backArrow.className = 'back-arrow';
+                backArrow.textContent = '<';
+                pageTitle.insertBefore(backArrow, pageTitle.firstChild);
+                
+                // ページタイトルを設定
+                document.querySelector('.title-text').innerHTML = '# Project Details';
+            });
+
+        // フッターを読み込む
+        fetch('../footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+            });
+    </script>
+</body>
+</html>

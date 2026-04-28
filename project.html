@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>details | shiozaki_lab_projects</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project-detail.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
+    <!-- ヘッダーをインクルード -->
+    <div id="header-container"></div>
+
+    <div class="page-title">
+        <h2 class="title-text"></h2>
+    </div>
+
+    <!-- プロジェクト詳細（スプレッドシートから動的生成） -->
+    <div class="project-content" id="project-content">
+        <p id="loading-message" style="padding: 50px 0; color: #888;">読み込み中...</p>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <!-- Google Sheets 連携モジュール -->
+    <script src="js/sheets.js"></script>
+
+    <script>
+        // ヘッダーを読み込む
+        fetch('header.html')
+            .then(r => r.text())
+            .then(data => {
+                document.getElementById('header-container').innerHTML = data;
+
+                const logoLink = document.querySelector('.logo a');
+                if (logoLink) logoLink.href = 'index.html';
+
+                const logoImage = document.querySelector('.logo-image');
+                if (logoImage) logoImage.src = 'img/logo.png';
+
+                // 戻るボタンを追加
+                const pageTitle = document.querySelector('.page-title');
+                const backArrow = document.createElement('a');
+                backArrow.href = 'index.html';
+                backArrow.className = 'back-arrow';
+                backArrow.textContent = '<';
+                pageTitle.insertBefore(backArrow, pageTitle.firstChild);
+
+                document.querySelector('.title-text').textContent = '# Project Details';
+            });
+
+        // フッターを読み込む
+        fetch('footer.html')
+            .then(r => r.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+            });
+
+        // URLパラメータからプロジェクトIDを取得
+        const params = new URLSearchParams(window.location.search);
+        const projectId = params.get('id');
+
+        if (!projectId) {
+            showError('プロジェクトが指定されていません。');
+        } else {
+            fetchProjects()
+                .then(projects => {
+                    const project = projects.find(p => p.id === projectId);
+                    if (!project) {
+                        showError('指定されたプロジェクトが見つかりませんでした。');
+                        return;
+                    }
+                    renderProject(project);
+                })
+                .catch(err => {
+                    showError('データの読み込みに失敗しました。js/sheets.js の SPREADSHEET_ID を確認してください。');
+                    console.error(err);
+                });
+        }
+
+        /**
+         * プロジェクト詳細を描画する
+         * @param {{ id, title, date, tags, image_url, description }} project
+         */
+        function renderProject(project) {
+            // ページタイトル更新
+            document.title = `${project.title} | shiozaki_lab_projects`;
+
+
+            const content = document.getElementById('project-content');
+            content.innerHTML = '';
+
+            // ---- project-header ----
+            const header = document.createElement('div');
+            header.className = 'project-header';
+
+            const titleEl = document.createElement('h1');
+            titleEl.className = 'project-title';
+            titleEl.textContent = project.title;
+
+            const dateEl = document.createElement('div');
+            dateEl.className = 'project-date';
+            dateEl.textContent = project.date;
+
+            header.appendChild(titleEl);
+            header.appendChild(dateEl);
+
+            // ---- project-main-content ----
+            const mainContent = document.createElement('div');
+            mainContent.className = 'project-main-content';
+
+            // 画像サイド
+            const imageSide = document.createElement('div');
+            imageSide.className = 'project-image-side';
+
+            // メイン画像
+            const mainImg = document.createElement('img');
+            mainImg.src = project.image_url;
+            mainImg.alt = project.title;
+            mainImg.className = 'project-image-main';
+            imageSide.appendChild(mainImg);
+
+            // サムネイルギャラリー（5スロット固定）
+            // スロット1 = メイン画像、スロット2〜5 = 追加画像
+            const thumbDefs = [
+                project.image_url,
+                project.image_url_2,
+                project.image_url_3,
+                project.image_url_4,
+                project.image_url_5,
+            ];
+
+            const thumbsContainer = document.createElement('div');
+            thumbsContainer.className = 'gallery-thumbs';
+
+            const thumbSlots = [];
+
+            thumbDefs.forEach((url, i) => {
+                const slot = document.createElement('div');
+
+                if (url && url.trim()) {
+                    slot.className = 'gallery-thumb';
+                    if (i === 0) slot.classList.add('active'); // 初期選択はスロット1
+
+                    const thumbImg = document.createElement('img');
+                    thumbImg.src = url;
+                    thumbImg.alt = '';
+                    slot.appendChild(thumbImg);
+
+                    // クリックでメイン画像を即時更新
+                    slot.addEventListener('click', function () {
+                        mainImg.src = url;
+                        thumbSlots.forEach(s => s.classList.remove('active'));
+                        slot.classList.add('active');
+                    });
+                } else {
+                    slot.className = 'gallery-thumb gallery-thumb--empty';
+                }
+
+                thumbSlots.push(slot);
+                thumbsContainer.appendChild(slot);
+            });
+
+            imageSide.appendChild(thumbsContainer);
+
+            // テキストサイド
+            const textSide = document.createElement('div');
+            textSide.className = 'project-text-side';
+
+            const description = document.createElement('div');
+            description.className = 'project-description';
+
+            // セル内改行（\n）で段落分割
+            const paragraphs = (project.description || '')
+                .split('\n')
+                .filter(line => line.trim());
+
+            if (paragraphs.length === 0) {
+                description.appendChild(document.createElement('p'));
+            } else {
+                paragraphs.forEach(line => {
+                    const p = document.createElement('p');
+                    p.textContent = line;
+                    description.appendChild(p);
+                });
+            }
+
+            textSide.appendChild(description);
+            mainContent.appendChild(imageSide);
+            mainContent.appendChild(textSide);
+
+            content.appendChild(header);
+            content.appendChild(mainContent);
+        }
+
+        /**
+         * エラーメッセージを表示する
+         * @param {string} message
+         */
+        function showError(message) {
+            const el = document.getElementById('loading-message');
+            if (el) {
+                el.textContent = message;
+                el.style.color = '#888';
+            }
+        }
+    </script>
+</body>
+</html>

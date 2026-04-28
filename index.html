@@ -10,12 +10,13 @@
 </head>
 <body>
     <!-- ローディング画面（中央にサイト名を表示） -->
-<div id="loading">
-  <h1 class="site-name">SHIOZAKI LABORATORY</h1>
-</div>
+    <div id="loading">
+        <h1 class="site-name">SHIOZAKI LABORATORY</h1>
+    </div>
+
     <!-- ヘッダーをインクルード -->
     <div id="header-container"></div>
-    
+
     <!-- ページタイトルとソートボタン -->
     <div class="page-title">
         <div class="title-container">
@@ -23,7 +24,7 @@
             <div class="sort-button" data-sort="desc">↓ New</div>
         </div>
     </div>
-    
+
     <!-- タグフィルター部分 -->
     <div class="tag-filter-section">
         <div class="tag-filters">
@@ -36,165 +37,18 @@
             <span class="tag-filter" data-tag="Event"># Event</span>
         </div>
     </div>
-    
+
+    <!-- プロジェクトグリッド（スプレッドシートから動的生成） -->
     <div class="projects-grid" id="projects-grid">
-        <a href="projects/上池袋の住宅プロジェクト.html" class="project-card" data-tags="Design" data-date="202010">
-            <div class="fixed-image-square">
-                <div class="project-image-container">
-                    <img src="img/上池袋の住宅.webp" alt="上池袋の住宅プロジェクト" class="project-image">
-                </div>
-            </div>
-            <div class="fixed-text-square">
-                <div class="project-info">
-                    <span class="project-title">上家袋の住宅</span><span class="project-separator"> / </span><span class="project-date"></span>
-                </div>
-            </div>
-            <div class="project-square"></div>
-        </a>
-        
-        <a href="projects/大塚・三業通りの住宅プロジェクト.html" class="project-card" data-tags="Design" data-date="201703">
-            <div class="fixed-image-square">
-                <div class="project-image-container">
-                    <img src="img/大塚・三業通りの住宅.jpg" alt="大塚・三業通りの住宅" class="project-image">
-                </div>
-            </div>
-            <div class="fixed-text-square">
-                <div class="project-info">
-                    <span class="project-title">大塚・三業通りの住宅</span><span class="project-separator"> / </span><span class="project-date"></span>
-                </div>
-            </div>
-            <div class="project-square"></div>
-        </a>
-        
-        <a href="projects/SUPERTIGHTCITY.html" class="project-card" data-tags="Research" data-date="201907">
-            <div class="fixed-image-square">
-                <div class="project-image-container">
-                    <img src="img/SUPERTIGHTCITY_1.png" alt="SUPERTIGHTCITY" class="project-image">
-                </div>
-            </div>
-            <div class="fixed-text-square">
-                <div class="project-info">
-                    <span class="project-title">SUPERTIGHTCITY</span><span class="project-separator"> / </span><span class="project-date"></span>
-                </div>
-            </div>
-            <div class="project-square"></div>
-        </a>
-        
-        <a href="projects/空間へ,磯崎新.html" class="project-card" data-tags="Reading" data-date="202503">
-            <div class="fixed-image-square">
-                <div class="project-image-container">
-                    <img src="img/2503_空間へ, 磯崎新.webp" alt="空間へ/磯崎新" class="project-image">
-                </div>
-            </div>
-            <div class="fixed-text-square">
-                <div class="project-info">
-                    <span class="project-title">空間へ/磯崎新</span><span class="project-separator"> / </span><span class="project-date"></span>
-                </div>
-            </div>
-            <div class="project-square"></div>
-        </a>
-        
-        <a href="projects/機能から様相へ, 原広司.html" class="project-card" data-tags="Reading" data-date="202406">
-            <div class="fixed-image-square">
-                <div class="project-image-container">
-                    <img src="img/2406_機能から様相へ, 原広司.webp" alt="空間〈機能から様相へ〉/原広司" class="project-image">
-                </div>
-            </div>
-            <div class="fixed-text-square">
-                <div class="project-info">
-                    <span class="project-title">空間〈機能から様相へ〉/原広司</span><span class="project-separator"> / </span><span class="project-date"></span>
-                </div>
-            </div>
-            <div class="project-square"></div>
-        </a>
-        
-        <a href="projects/Liminal Space 中間報告会.html" class="project-card" data-tags="Research" data-date="20250110">
-            <div class="fixed-image-square">
-                <div class="project-image-container">
-                    <img src="img/250110_Liminal Space 中間報告会.webp" alt="project6" class="project-image">
-                </div>
-            </div>
-            <div class="fixed-text-square">
-                <div class="project-info">
-                    <span class="project-title">Liminal Space中間報告会</span><span class="project-separator"> / </span><span class="project-date"></span>
-                </div>
-            </div>
-            <div class="project-square"></div>
-        </a>
-        
-        <a href="projects/菊名駅前リサーチ.html" class="project-card" data-tags="Research" data-date="202207">
-            <div class="fixed-image-square">
-                <div class="project-image-container">
-                    <img src="img/2207_菊名駅前リサーチ.webp" alt="菊名駅前リサーチ" class="project-image">
-                </div>
-            </div>
-            <div class="fixed-text-square">
-                <div class="project-info">
-                    <span class="project-title">菊名駅前リサーチ</span><span class="project-separator"> / </span><span class="project-date"></span>
-                </div>
-            </div>
-            <div class="project-square"></div>
-        </a>
-        
-        <a href="projects/新宿駅地下リサーチ.html" class="project-card" data-tags="Research" data-date="20250115">
-            <div class="fixed-image-square">
-                <div class="project-image-container">
-                    <img src="img/241025_新宿駅地下リサーチ.webp" alt="新宿駅地下リサーチ" class="project-image">
-                </div>
-            </div>
-            <div class="fixed-text-square">
-                <div class="project-info">
-                    <span class="project-title">新宿駅地下リサーチ</span><span class="project-separator"> / </span><span class="project-date"></span>
-                </div>
-            </div>
-            <div class="project-square"></div>
-        </a>
-        
-        <a href="projects/アーバンフロッタージュ.html" class="project-card" data-tags="Event" data-date="201807">
-            <div class="fixed-image-square">
-                <div class="project-image-container">
-                    <img src="img/urbanfrottage.webp" alt="アーバンフロッタージュ" class="project-image">
-                </div>
-            </div>
-            <div class="fixed-text-square">
-                <div class="project-info">
-                    <span class="project-title">アーバンフロッタージュ</span><span class="project-separator"> / </span><span class="project-date"></span>
-                </div>
-            </div>
-            <div class="project-square"></div>
-        </a>
-        
-        <a href="projects/project10.html" class="project-card" data-tags="Research" data-date="20241212">
-            <div class="fixed-image-square">
-                <div class="project-image-container">
-                    <img src="img/project10.jpg" alt="project10" class="project-image">
-                </div>
-            </div>
-            <div class="fixed-text-square">
-                <div class="project-info">
-                    <span class="project-title">project10</span><span class="project-separator"> / </span><span class="project-date"></span>
-                </div>
-            </div>
-            <div class="project-square"></div>
-        </a>
-         
-        <a href="projects/都市建築の力.html" class="project-card" data-tags="Research" data-date="202002">
-            <div class="fixed-image-square">
-                <div class="project-image-container">
-                    <img src="img/都市建築の力.jpg" alt="都市建築の力" class="project-image">
-                </div>
-            </div>
-            <div class="fixed-text-square">
-                <div class="project-info">
-                    <span class="project-title">都市建築の力</span><span class="project-separator"> / </span><span class="project-date"></span>
-                </div>
-            </div>
-            <div class="project-square"></div>
-        </a>
-    </div>
+        <p id="grid-loading" style="grid-column: 1 / -1; padding: 20px; color: #888;">
+            読み込み中...
+        </p>
     </div>
 
     <div id="footer-container"></div>
+
+    <!-- Google Sheets 連携モジュール -->
+    <script src="js/sheets.js"></script>
 
     <script>
         // ヘッダーとフッターを読み込む
@@ -203,54 +57,97 @@
             .then(data => {
                 document.getElementById('header-container').innerHTML = data;
             });
-        
+
         fetch('footer.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer-container').innerHTML = data;
             });
 
-        // プロジェクトの日付を自動更新する関数
-        function updateProjectDates() {
-            const projectCards = document.querySelectorAll('.project-card');
-            
-            projectCards.forEach(card => {
-                const dataDate = card.getAttribute('data-date');
-                const projectDateElement = card.querySelector('.project-date');
-                
-                if (dataDate && projectDateElement) {
-                    projectDateElement.textContent = dataDate;
-                }
-            });
+        // ------------------------------------------------
+        // スプレッドシートからプロジェクトカードを生成する
+        // ------------------------------------------------
+        function createProjectCard(project) {
+            const card = document.createElement('a');
+            card.href = `project.html?id=${encodeURIComponent(project.id)}`;
+            card.className = 'project-card';
+            card.setAttribute('data-tags', project.tags);
+            card.setAttribute('data-date', project.date);
+
+            // 画像エリア
+            const imageSquare = document.createElement('div');
+            imageSquare.className = 'fixed-image-square';
+
+            const imageContainer = document.createElement('div');
+            imageContainer.className = 'project-image-container';
+
+            const img = document.createElement('img');
+            img.src = project.image_url;
+            img.alt = project.title;
+            img.className = 'project-image';
+
+            imageContainer.appendChild(img);
+            imageSquare.appendChild(imageContainer);
+
+            // テキストエリア
+            const textSquare = document.createElement('div');
+            textSquare.className = 'fixed-text-square';
+
+            const projectInfo = document.createElement('div');
+            projectInfo.className = 'project-info';
+
+            const titleSpan = document.createElement('span');
+            titleSpan.className = 'project-title';
+            titleSpan.textContent = project.title;
+
+            const sepSpan = document.createElement('span');
+            sepSpan.className = 'project-separator';
+            sepSpan.textContent = ' / ';
+
+            const dateSpan = document.createElement('span');
+            dateSpan.className = 'project-date';
+            dateSpan.textContent = project.date;
+
+            projectInfo.appendChild(titleSpan);
+            projectInfo.appendChild(sepSpan);
+            projectInfo.appendChild(dateSpan);
+            textSquare.appendChild(projectInfo);
+
+            // カラースクエア（タグ別CSSで色が決まる）
+            const colorSquare = document.createElement('div');
+            colorSquare.className = 'project-square';
+
+            card.appendChild(imageSquare);
+            card.appendChild(textSquare);
+            card.appendChild(colorSquare);
+
+            return card;
         }
 
-        // プロジェクトを日付順でソート
+        // ------------------------------------------------
+        // 日付ソート
+        // ------------------------------------------------
         function sortProjectsByDate(order = 'desc') {
             const grid = document.getElementById('projects-grid');
             const cards = Array.from(grid.querySelectorAll('.project-card'));
-            
+
             cards.sort((a, b) => {
                 const dateA = a.getAttribute('data-date');
                 const dateB = b.getAttribute('data-date');
-                
-                if (order === 'desc') {
-                    return dateB.localeCompare(dateA); // 降順（新しい順）
-                } else {
-                    return dateA.localeCompare(dateB); // 昇順（古い順）
-                }
+                return order === 'desc'
+                    ? dateB.localeCompare(dateA)
+                    : dateA.localeCompare(dateB);
             });
-            
-            // 並び替えたカードを再配置
+
             cards.forEach(card => grid.appendChild(card));
         }
 
-        // タグフィルター機能
+        // ------------------------------------------------
+        // タグフィルター
+        // ------------------------------------------------
         function filterProjects(selectedTag) {
-            const cards = document.querySelectorAll('.project-card');
-            
-            cards.forEach(card => {
+            document.querySelectorAll('.project-card').forEach(card => {
                 const tags = card.getAttribute('data-tags');
-                
                 if (selectedTag === 'All' || tags.includes(selectedTag)) {
                     card.classList.remove('hidden');
                 } else {
@@ -259,44 +156,101 @@
             });
         }
 
-        // イベントリスナーの設定
-        document.addEventListener('DOMContentLoaded', function() {
-            // ローディング画面を2秒後にフェードアウト
-const loadingScreen = document.getElementById('loading');
-setTimeout(() => {
-    loadingScreen.classList.add('hidden');
-}, 2000);
+        // ------------------------------------------------
+        // 初期化
+        // ------------------------------------------------
+        document.addEventListener('DOMContentLoaded', function () {
+            const loadingScreen = document.getElementById('loading');
+            const grid = document.getElementById('projects-grid');
 
-            // 初期設定
-            updateProjectDates();
-            sortProjectsByDate('desc'); // デフォルトは新しい順
-            
+            // サイト名アニメーション（1.5s）が完了するまでの最低表示時間
+            const minDisplay = new Promise(resolve => setTimeout(resolve, 1500));
+
+            // スプレッドシート取得 → カード生成 → 全画像の読み込み完了を待つ
+            const contentReady = fetchProjects()
+                .then(projects => {
+                    grid.innerHTML = ''; // 「読み込み中...」を消去
+                    projects.forEach(project => {
+                        grid.appendChild(createProjectCard(project));
+                    });
+                    sortProjectsByDate('desc'); // 初期表示は新しい順
+
+                    // グリッド内の全画像が load または error になるまで待つ
+                    const images = Array.from(grid.querySelectorAll('img'));
+                    return Promise.all(
+                        images.map(img => new Promise(resolve => {
+                            if (img.complete) {
+                                resolve();
+                            } else {
+                                img.addEventListener('load', resolve);
+                                img.addEventListener('error', resolve); // 画像エラーでも続行
+                            }
+                        }))
+                    );
+                })
+                .catch(err => {
+                    grid.innerHTML =
+                        '<p style="grid-column: 1 / -1; padding: 20px; color: #888;">' +
+                        'プロジェクトの読み込みに失敗しました。<br>' +
+                        'js/sheets.js のURLを確認してください。' +
+                        '</p>';
+                    console.error('スプレッドシート読み込みエラー:', err);
+                });
+
+            // 最低表示時間 AND コンテンツ読み込み完了、両方を満たしたらフェードアウト
+            Promise.all([minDisplay, contentReady]).then(() => {
+                loadingScreen.classList.add('hidden');
+            });
+
+            // ------------------------------------------------
+            // タッチデバイス: 1回目タップでクリッピング、2回目でページ遷移
+            // ------------------------------------------------
+            const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+            if (isTouchDevice) {
+                // グリッド内のタップ（動的生成カードにも対応するためイベント委譲）
+                grid.addEventListener('click', function (e) {
+                    const card = e.target.closest('.project-card');
+                    if (!card) return;
+
+                    const imageSquare = card.querySelector('.fixed-image-square');
+                    if (!imageSquare.classList.contains('touched')) {
+                        // 1回目: クリッピング適用（ページ遷移は阻止）
+                        e.preventDefault();
+                        grid.querySelectorAll('.fixed-image-square.touched')
+                            .forEach(el => el.classList.remove('touched'));
+                        imageSquare.classList.add('touched');
+                    }
+                    // 2回目: .touched が付いている → デフォルト動作（リンク遷移）
+                });
+
+                // グリッド外をタップしたらクリッピングを解除
+                document.addEventListener('click', function (e) {
+                    if (!e.target.closest('#projects-grid')) {
+                        grid.querySelectorAll('.fixed-image-square.touched')
+                            .forEach(el => el.classList.remove('touched'));
+                    }
+                });
+            }
+
             // タグフィルターのイベント
             const tagFilters = document.querySelectorAll('.tag-filter');
             tagFilters.forEach(filter => {
-                filter.addEventListener('click', function() {
-                    // アクティブクラスの切り替え
+                filter.addEventListener('click', function () {
                     tagFilters.forEach(f => f.classList.remove('active'));
                     this.classList.add('active');
-                    
-                    // フィルタリング実行
-                    const selectedTag = this.getAttribute('data-tag');
-                    filterProjects(selectedTag);
+                    filterProjects(this.getAttribute('data-tag'));
                 });
             });
-            
+
             // ソートボタンのイベント
             const sortButton = document.querySelector('.sort-button');
-            sortButton.addEventListener('click', function() {
+            sortButton.addEventListener('click', function () {
                 const currentSort = this.getAttribute('data-sort');
-                
                 if (currentSort === 'desc') {
-                    // 降順→昇順に変更
                     this.setAttribute('data-sort', 'asc');
                     this.innerHTML = '↑ Old';
                     sortProjectsByDate('asc');
                 } else {
-                    // 昇順→降順に変更
                     this.setAttribute('data-sort', 'desc');
                     this.innerHTML = '↓ New';
                     sortProjectsByDate('desc');

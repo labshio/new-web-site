@@ -200,6 +200,17 @@ nav ul li a:hover {
     clip-path: inset(10% 10% 10% 10%);
 }
 
+/* タッチデバイス: ホバー効果を無効化し、.touched クラスで代替 */
+@media (hover: none) {
+    .fixed-image-square:hover {
+        clip-path: inset(0% 0% 0% 0%);
+    }
+
+    .fixed-image-square.touched {
+        clip-path: inset(10% 10% 10% 10%);
+    }
+}
+
     
 /* タイトル用の透明正方形 */
 .fixed-text-square {
